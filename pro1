@@ -1,0 +1,52 @@
+MYAPP.JAVA:
+
+import java.util.ResourceBundle;
+public class MyApp
+{
+public int userlogin(string inuser,string inpwd)
+{
+ResourceBundle rb= ResourceBundle.getBundle(“config”);
+String username=rb.getstring(“username”);
+String password=rb.getstring(“password”);
+if(inuser.equals(username) && inpassword(password))
+return 1;
+else
+return 0;
+}
+
+
+CONFIG.PROPERTIES:
+
+username=abc
+password=abc@1234
+
+
+MYAPPTEST.JAVA CODE:
+
+package myproject;
+import org.testng.Assert;
+public class apptest {
+public void testlogin1()
+{
+app myapp=new app();
+Assert.assertEquals(0,myapp.userlogin("abc","abc1234"));
+}
+public void testlogin2()
+{
+app myapp=new app();
+Assert.assertEquals(1,myapp.userlogin("abc","abc@1234"));
+}
+}
+
+
+In pom.xml add the following dependency to run Testcases:
+
+<dependencies>
+    <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+    <dependency>
+        <groupId>org.testng</groupId>
+        <artifactId>testng</artifactId>
+        <version>7.5.1</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
