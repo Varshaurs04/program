@@ -1,0 +1,23 @@
+github push:
+1. team-share project
+2. team-add to index
+3. team-commit 
+4. team-remote-push
+
+jenkins:
+1.git
+2.add build action- invoke top level maven targets- (add maven, advanced- pom- folder/pom.xml)
+3.post build action- deploy war/ear
+4. **/*.war
+5. add container- tomcat9.x url
+
+eclipse-web.xml:
+
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-war-plugin</artifactId>
+    <configuration>
+        <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+    </configuration>
+</plugin>
+
